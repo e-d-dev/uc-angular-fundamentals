@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -123,6 +123,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "uc-app"
+    }
+  },
+  "defaultProject": "uc-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

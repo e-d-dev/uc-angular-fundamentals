@@ -1,0 +1,37 @@
+<div>
+    <passenger-count [items]="passengers"></passenger-count>
+
+    <div *ngFor="let passenger of passengers">
+        {{passenger.fullname}}
+    </div>
+
+    <passenger-detail *ngFor="let passenger of passengers" [detail]="passenger" (edit)="handleEdit($event)"
+        (remove)="handleRemove($event)"></passenger-detail>
+    <!-- <h3>===============================</h3>
+    <ul>
+        <li *ngFor="let passenger of passengers, let i = index">
+            <span class="status" [ngClass]="{
+                'checked-in' : passenger.checkedIn,
+                'checked-out' : !passenger.checkedIn
+            }">
+                {{i}}: {{passenger.fullname}}
+            </span>
+        </li>
+    </ul>
+    <h3>===============================</h3>
+    <ul>
+        <li *ngFor="let passenger of passengers, let i = index">
+            <span class="status" [style.backgroundColor]="(passenger.checkedIn ? '#2ecc71' : '#c0392b')">
+                {{i}}: {{passenger.fullname}}
+            </span>
+        </li>
+    </ul>
+    <h3>===============================</h3>
+    <ul>
+        <li *ngFor="let passenger of passengers, let i = index">
+            <span class="status" [ngStyle]="{backgroundColor: (passenger.checkedIn ? '#2ecc71' : '#c0392b')}">
+                {{i}}: {{passenger.fullname}}
+            </span>
+        </li>
+    </ul> -->
+</div>
