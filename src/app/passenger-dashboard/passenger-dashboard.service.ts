@@ -25,6 +25,17 @@ export class PassengerDashboardService {
             );
     }
 
+    getPassenger(id: number): Observable<Passenger> {
+        return this.http
+            .get(`${PASSENGER_API}/${id}`)
+            .pipe(
+                map((response: any) => response),
+                catchError((error) => {
+                    throw new Error('Error in source. Details: ' + error);
+                })
+            );
+    }
+
     /**
      * also works with a promise
      * in the component it's not a subscription, you have to use .then in the component
