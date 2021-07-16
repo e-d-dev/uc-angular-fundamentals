@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PassengerDashboardService } from '../../passenger-dashboard.service';
-import { Passenger } from '../../models/passenger.interface'
+import { Passenger } from '../../models/passenger.interface';
 
 @Component({
     selector: 'passenger-viewer',
@@ -15,5 +15,11 @@ export class PassengerViewerComponent implements OnInit {
         this.passengerService
             .getPassenger(1)
             .subscribe((data: Passenger) => this.passenger = data);
+    }
+
+    onUpdatePassenger(event: Passenger) {
+        this.passengerService.updatePassenger(event).subscribe((data: Passenger) => {
+            this.passenger = Object.assign({}, this.passenger, event);
+        })
     }
 }
