@@ -11,8 +11,9 @@ import { Passenger } from '../../models/passenger.interface';
 export class PassengerDetailComponent implements OnChanges, OnInit {
 
     @Input() detail: Passenger | undefined;
-    @Output() edit: EventEmitter<any> = new EventEmitter();
-    @Output() remove: EventEmitter<any> = new EventEmitter();
+    @Output() edit: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+    @Output() remove: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+    @Output() view: EventEmitter<Passenger> = new EventEmitter<Passenger>();
     editing: boolean = false;
 
     constructor() { }
@@ -31,6 +32,10 @@ export class PassengerDetailComponent implements OnChanges, OnInit {
         if (this.detail !== undefined) {
             this.detail.fullname = value;
         }
+    }
+
+    goToPassenger(): void {
+        this.view.emit(this.detail);
     }
 
     toggleEdit(): void {

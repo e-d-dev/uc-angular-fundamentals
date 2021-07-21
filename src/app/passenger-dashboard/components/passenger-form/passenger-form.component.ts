@@ -32,13 +32,13 @@ export class PassengerFormComponent {
         }
     ];
 
-    toggleCheckIn(checkedIn: boolean) {
+    toggleCheckIn(checkedIn: boolean): void {
         if (checkedIn && this.detail) {
             this.detail.checkInDate = Date.now();
         }
     }
 
-    handleSubmit(passenger: Passenger, isValid: boolean | null) {
+    handleSubmit(passenger: Passenger, isValid: boolean | null): void {
         if (isValid) {
             this.update.emit(passenger);
         }
